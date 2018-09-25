@@ -1,4 +1,6 @@
 <?php
+  //kutsume välja funktsioonide faili
+  require("functions.php");
   //echo "See on minu esimene PHP!";
 	$firstName = "Tundmatu";
 	$lastName = "Kodanik";
@@ -12,7 +14,12 @@
 	if (isset($_POST["lastName"])){
 		$lastName = $_POST["lastName"];
 	}
-
+	function fullname(){
+		$GLOBALS["fullName"] = $GLOBALS["firstName"] .$GLOBALS["lastName"];
+	}
+		$fullname = "";
+		fullname();
+	
 	
 
  ?>

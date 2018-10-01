@@ -49,4 +49,43 @@
 		$data = htmlspecialchars($data);
 		return $data;
 	}
+
+
+	//kiisud
+
+	function addcat ($catname, $catcolor, $cattaillength){
+	//echo "Töötab";
+	$notice = ""; //see on teade mis antakse salvestamise kohta
+	//loome ühenduse serveriga
+	$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+	//valmistame ette sql päringu
+	$stmt = $mysqli->prepare("INSERT INTO kassid (nimi, v2rv, saba) VALUES(?, ?, ?)");
+	echo $mysqli->error;
+	$stmt->bind_param("ssi", $catname, $catcolor, $cattaillength);//s-string, i-integer, d-decimal,
+	if ($stmt->execute()){
+		$notice = 'Kiisu: "' .$catname . '" andmed on salvestatud!';
+	}else{
+		$notice = "Sõnumi salvestamisel tekkis tõrge: " . $stmt->error;
+	}
+	$stmt->close();
+	$mysqli->close();
+	return $notice;
+	}
+
+	function listallcats(){
+		$notice = "";
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+		$stmt = $mysqli->prepare("SELECT nimi, v2rv, saba FROM kassid");
+		echo $mysqli->error;
+		$stmt->bind_result($readcatname, $readcatcolor, $readcattaillength);
+		$stmt->execute();
+		while ($stmt->fetch()){
+			$notice .="<li>" .$readcatname ."," ." " .$readcatcolor ."," ." " .$readcattaillength ."</li> \n";
+		}
+		$stmt->close();
+		$mysqli->close();
+		return $notice;
+		}
+
+
 ?>

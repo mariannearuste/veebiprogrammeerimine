@@ -40,7 +40,6 @@
   </form>
   <br>
   <p><?php echo $notice; ?></p>
-  <p>Lisatud kiisude nimekiri: </p>
   <ol><?php echo $cats; ?></ol>
   <br>
   

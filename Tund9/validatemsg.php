@@ -14,6 +14,8 @@
   }
   
   $messages = readallunvalidatedmessages();
+  $pageTitle="Pealeht";
+  require("header.php");
 ?>
 <!DOCTYPE html>
 <html>

@@ -9,3 +9,6 @@ CREATE TABLE `if18_Marianne_Ar_1`.`vpusers` ( `id` INT(11) NOT NULL AUTO_INCREME
 üleslaetavad fotod 
 
 CREATE TABLE `if18_Marianne_Ar_1`.`vpphotos` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `userid` INT(11) NOT NULL , `filename` VARCHAR(40) NOT NULL , `created` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP , `alttext` VARCHAR(256) NULL DEFAULT NULL , `privacy` INT(1) NOT NULL , `deleted` DATE NULL DEFAULT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+piltide hindamine 
+CREATE TABLE `if18_Marianne_Ar_1`.`vpphotoratings` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `photoid` INT(11) NOT NULL , `userid` INT(11) NOT NULL , `rating` INT(1) NOT NULL , `added` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP , PRIMARY KEY (`id`)) ENGINE = InnoDB;

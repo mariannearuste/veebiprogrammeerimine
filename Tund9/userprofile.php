@@ -57,6 +57,8 @@
     <li><a href="?logout=1">Logi välja</a>!</li>
     <li><a href="main.php">Tagasi pealehele</a></li>
   </ul>
+  <img src= "../vpprofilepics/download.png">
+  <br>
   <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <label>Kasutaja kirjeldus (max 2000 tähemärki) </label><br>
     <textarea rows="10" cols="80" name="description"><?php echo $mydescription; ?></textarea>
